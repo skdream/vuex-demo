@@ -5,6 +5,11 @@ import { sync } from 'vuex-router-sync'
 import configRouter from './routes'
 import App from './App'
 
+import { timeToNow, transTab } from './filters';
+
+Vue.filter('timeToNow', timeToNow);
+Vue.filter('transTab', transTab);
+
 
 Vue.use(VueRouter)
 Vue.config.warnExpressionErrors = false

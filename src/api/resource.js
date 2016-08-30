@@ -9,10 +9,11 @@ Vue.use(VueResource);
 
 
 Vue.http.options.crossOrigin = true;
+Vue.http.options.credentials = false;
 Vue.http.options.xhr = {withCredentials:true}
 Vue.http.options.emulateJSON = true;
 
-
+/*
 Vue.http.interceptors.push({
   request (request) {
     request.headers = request.headers || {}
@@ -22,5 +23,5 @@ Vue.http.interceptors.push({
     return response
   }
 })
-
-export const GetTopicsApi = Vue.resource(API_ROOT + '/topics');
+*/
+export const GetTopicsApi = Vue.resource(API_ROOT + 'topics');

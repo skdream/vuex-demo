@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="inner no-padding">
-      <div id="topic_list">df
-       <div> <topics :topic-list="topicList"></topics></div>
+      <div id="topic_list">
+       <topics :topic-list='topicList'></topics>
       </div>
     </div>
     </div>
@@ -11,31 +11,38 @@
 <script>
   import {getTopics} from '../vuex/actions'
 
+  import {getTopicsData} from '../vuex/getters'
+
   import Topics from './topics.vue'
-  import NavBar from './Navbar'
-  import Toaster from './Toaster'
+  import store from '../vuex/store'
+
 
   export default {
     vuex: {
       getters: {
-        topicList:getTopics
+        topicList:getTopicsData
       },
-      actions:{getTopics}
+      actions:{
+        getTopics
+      }
     },
     route:{
       data({ to: { params:{ tab } }}){
-        this.getgetTopics(tab)
+        this.getTopics(tab)
       }
     },
+    ready(){
+       this.getTopics();
+       console.log(this.topicList)
+    },
     components:{
-      topics:Topics,
-      NavBar,
-      Toaster
-    }
+      topics:Topics
+    },
+    store
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 h1 {
   color: #42b983;

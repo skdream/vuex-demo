@@ -4,7 +4,8 @@
 import {GetTopicsApi} from './resource'
 
 export default{
-  getTopics :(data) => {
-    return GetTopicsApi(data)
+  getTopics :function() {
+  	console.log(33)
+    return GetTopicsApi.get()
   }
 }
