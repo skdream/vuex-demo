@@ -3,8 +3,4 @@
  */
 
 
-export const getTopicsData = (state) => {
-
-console.log(state.topics.topics);
-	state.topics
-}
+export const getTopicsData = (state) =>  state.topics;

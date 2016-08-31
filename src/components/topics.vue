@@ -1,5 +1,7 @@
 <template>
   <div >
+ee
+    {{ JSON.stringify(topicList)}}
     <div class="cell" v-for="topic in topicList">
      <!--  <a class="user_avatar pull-left" v-link="{path:'topic',params:{id:topic.id}}" >
         <img :src="topic.author.avatar_url" title="{{ topic.author.loginname}}">

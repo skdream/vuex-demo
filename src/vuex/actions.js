@@ -14,7 +14,7 @@ export const getTopics = ({dispatch}) => {
   api.getTopics().then(response => {
     if(response.ok){
       dispatch(types.LOADED_TOPICS);
-      dispatch(types.SUCCESS_GET_TOPICS,{topics:response.data.data})
+      dispatch(types.SUCCESS_GET_TOPICS,{topics:response.json().data})
     }
   },response =>{
     dispatch(types.FAILURE_GET_TOPICS)

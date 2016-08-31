@@ -13,6 +13,8 @@ const mutations ={
   },
   [SUCCESS_GET_TOPICS] (state,action) {
     state.topics = action.topics
+
+    console.log(state.topics)
   }
 }
 

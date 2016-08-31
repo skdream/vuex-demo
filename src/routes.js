@@ -5,20 +5,13 @@
 import Home from './components/Home.vue'
 import Comments from './components/Comments'
 
-export default function (router) {
-  router.map({
+export default  (router) => router.map({
     '/':{
       name:'home',
-      component:Home,
-      subRoutes:{
-        '/comments':{
-          name:'comments',
-          component:Comments
-        }
-      }
-    },
-    'index':{
       component:Home
+    },
+    '/comment':{
+      component:Comments
     }
   })
 
@@ -28,5 +21,5 @@ export default function (router) {
 //   transition.next()
 // })
 
-}
+
 

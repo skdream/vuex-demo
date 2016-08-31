@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div>this is template body</div>
+        <div>this is template body {{ msg }}</div>
 
     </div>
 </template>

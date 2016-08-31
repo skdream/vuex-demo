@@ -25,6 +25,11 @@ sync(store, router)
 
 configRouter(router)
 
+router.beforeEach((transition) => {
+  document.body.scrollTop = 0;
+  transition.next();
+})
+
 router.redirect({
   '*':'index'
 })
