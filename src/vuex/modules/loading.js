@@ -9,10 +9,10 @@ const state = {
 
 const mutations = {
   [LOADING_TOPICS] (state) {
-    state.loading = false
+    state.loading = true
   },
   [LOADED_TOPICS] (state) {
-    state.loading = true
+    state.loading = false
   }
 }
 

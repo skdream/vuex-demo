@@ -11,6 +11,7 @@ export const getTopics = ({dispatch},tab,page) => {
 
   dispatch(types.LOADING_TOPICS);
   dispatch(types.FAILURE_GET_TOPICS);
+
   api.getTopics(tab,page).then(response => {
     if(response.ok){
       dispatch(types.LOADED_TOPICS);

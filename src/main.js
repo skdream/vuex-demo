@@ -27,6 +27,7 @@ configRouter(router)
 
 router.beforeEach((transition) => {
   document.body.scrollTop = 0;
+  console.log(transition)
   transition.next();
 })
 
