@@ -10,6 +10,11 @@ export default  (router) => router.map({
       name:'home',
       component:Home
     },
+    '/tab/:tab/page/:page':{
+      name:'tab',
+      title:'精华',
+      component:Home
+    },
     '/comment':{
       component:Comments
     }

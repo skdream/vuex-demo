@@ -7,14 +7,14 @@ import * as types from './types'
 import api from '../api'
 
 
-export const getTopics = ({dispatch}) => {
+export const getTopics = ({dispatch},tab,page) => {
 
   dispatch(types.LOADING_TOPICS);
   dispatch(types.FAILURE_GET_TOPICS);
-  api.getTopics().then(response => {
+  api.getTopics(tab,page).then(response => {
     if(response.ok){
       dispatch(types.LOADED_TOPICS);
-      dispatch(types.SUCCESS_GET_TOPICS,{topics:response.json().data})
+      dispatch(types.SUCCESS_GET_TOPICS,response.json().data,tab)
     }
   },response =>{
     dispatch(types.FAILURE_GET_TOPICS)

@@ -3,6 +3,7 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
+import middlewares from './middleware'
 import loading from './modules/loading'
 import topics from './modules/topics'
 import showmsg from './modules/showmsg'
@@ -17,5 +18,6 @@ export default new Vuex.Store({
     topics,
     showmsg
   },
-  strict: debug
+  strict: debug,
+  middlewares
 })

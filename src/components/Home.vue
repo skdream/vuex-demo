@@ -1,13 +1,7 @@
 <template>
     <div class="inner no-padding">
       <div id="topic_list">
-       <topics :topic-list='topicList'></topics>
-        <div v-for ="item in topicList">
-          {{item.create_at}}
-        </div>
-        {{ JSON.stringify( {name:345} ) }}
-        dddggs345534
-        {{name}}
+       <topics :items='topicList'></topics>
       </div>
     </div>
 </template>
@@ -15,9 +9,8 @@
 <script>
   import {getTopics} from '../vuex/actions'
   import {getTopicsData} from '../vuex/getters'
-
   import Topics from './topics.vue'
-  import store from '../vuex/store'
+
 
   export default {
     data(){
@@ -30,27 +23,24 @@
         getTopics
       },
       getters: {
-        topicList:function(){
-          aa = getTopicsData();
-          console.log(aa);
-          return aa;
-        }
+        topicList:getTopicsData
       }
-
     },
-//    route:{
-//      data({ to: { params:{ tab } }}){
-//        this.getTopics(tab)
-//      }
-//    },
+    route:{
+      data({ to: { params:{ tab = 'all', page = 1 }} }){
+
+        const curPage = page;
+        const curTab = tab;
+        this.getTopics(curTab,curPage)
+      }
+    },
     created(){
       this.getTopics();
       // console.log(this.topicList)
     },
     components:{
       topics:Topics
-    },
-    store
+    }
   }
 </script>
 

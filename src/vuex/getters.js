@@ -3,4 +3,6 @@
  */
 
 
-export const getTopicsData = (state) =>  state.topics;
+export const getTopicsData = ({topics}) =>  topics.items;
+
+export const getCurrentTab = ({topics}) => topics.CurrentTab;

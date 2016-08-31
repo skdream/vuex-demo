@@ -1,17 +1,39 @@
 <template>
   <div class="header">
-
-    <a href="/?tab=all" class="topic-tab current-tab">全部</a>
-    <a href="/?tab=good" class="topic-tab ">精华</a>
-    <a href="/?tab=share" class="topic-tab ">分享</a>
-    <a href="/?tab=ask" class="topic-tab ">问答</a>
-    <a href="/?tab=job" class="topic-tab ">招聘</a>
-
+    <a v-for="tab in topicTabs"  v-link="{name:'tab', params:{tab:tab.ename, page:1} }" class="topic-tab" :class="currentTab === tab.ename?'current-tab':''"> {{ tab.name }}</a>
   </div>
 </template>
 <style>
 
 </style>
 <script>
+  import {getCurrentTab} from '../vuex/getters'
+export default {
 
+  vuex:{
+    getters:{
+      currentTab:getCurrentTab
+    }
+  },
+  data(){
+    return {
+      topicTabs: [{
+        name: '全部',
+        ename: 'all'
+      }, {
+        name: '精华',
+        ename: 'good'
+      }, {
+        name: '分享',
+        ename: 'share'
+      }, {
+        name: '问答',
+        ename: 'ask'
+      }, {
+        name: '招聘',
+        ename: 'job'
+      }]
+    }
+  }
+}
 </script>

@@ -4,17 +4,18 @@
 import {SUCCESS_GET_TOPICS,FAILURE_GET_TOPICS} from '../types'
 
 const state = {
-  topics:[]
+  items:[],
+  CurrentTab:'all'
 }
 
 const mutations ={
   [FAILURE_GET_TOPICS] (state) {
-    state.topics = []
+    state.items = []
   },
-  [SUCCESS_GET_TOPICS] (state,action) {
-    state.topics = action.topics
+  [SUCCESS_GET_TOPICS] (state,topics,tab) {
+    state.items = topics;
+    state.CurrentTab = tab
 
-    console.log(state.topics)
   }
 }
 
